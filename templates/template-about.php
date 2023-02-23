@@ -4,9 +4,7 @@
 ?>
 <?php
     $about=get_field('about');
-    // echo "<pre>";
-    // print_r($about);
-    // echo "</pre>";
+    
 ?>
 <div class="about_page">
     <div class="section1_b1">

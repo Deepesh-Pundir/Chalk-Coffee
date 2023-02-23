@@ -78,3 +78,18 @@ function myAcfOpInit() {
             'parent_slug' => $parent['menu_slug'],
         ));
     }}
+
+    function is_blog () {
+        return ( is_archive() || is_author() || is_category() || is_home()  || is_tag()) && 'post' == get_post_type();
+    }
+
+
+
+function add_additional_class_on_a($classes, $item, $args) // for add class in anchor tag in blog page for change color in haeder-2
+    {
+        if (isset($args->add_a_class)) {
+            $classes['class'] = $args->add_a_class;
+        }
+        return $classes;
+    }
+add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);

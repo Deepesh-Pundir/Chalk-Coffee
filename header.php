@@ -12,8 +12,13 @@
 <body>
        <?php include_once('banner.php'); ?>
             <div class="header">           <!-- header part start-->
+            <div class="hamburger" onclick="myFunction(this)">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+            </div>
                 <div class="logo"><a href="<?php echo site_url();?>"><img src="<?php echo $logimage;?>"></a></div>
-                <div class="menu">
+                <div class="menu nav_bar">
                     <ul>
                         <li><a href=""><?php wp_nav_menu(
                             array(
@@ -31,6 +36,20 @@
                             )?>
                 </div>
             </div>
+            <script>
+                const hamburger=document.getElementsByClassName('hamburger')[0];
+                const icon=document.getElementsByClassName('nav_bar')[0];
+                console.log(hamburger);
+                hamburger.addEventListener('click',()=>{
+                    icon.classList.toggle('active');
+                });
+               
+            </script>
+             <script>
+                function myFunction(x) {
+                    x.classList.toggle("change");
+                }
+            </script>
             <div class="text">
                 <div class="text1"><?php echo $Banner_section_val['title'];?></div>
                 <div class="text2"><?php echo $Banner_section_val['sub_title']?></div>

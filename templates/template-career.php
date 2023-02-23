@@ -33,25 +33,45 @@
         <div class="title" id="Opportunities"><?php echo $career['section2']['title'];?></div>
         <div class="description"><?php echo $career['section2']['description'];?></div>
     </div>
-    <div class="career_section2_b2">
+    <div class="career_section2_b2" >
         <?php
+            $count=0;
             foreach($career['section2']['grid_image'] as $value){   
                     ?>
-                    <div class="grid_image">
+                    <div class="grid_image" id="flex">
                         <div class="images">
                             <img src="<?php  echo $value['image']['url'];?>" alt="">
                         </div>
 
-                    <div class="image_content">
-                        <div class="image_title"><h4><?php  echo $value['image_title'];?></h4></div>
-                        <div class="image_desc"><?php  echo $value['image_descrip'];?></div>
-                        <div class="image_content_button">
-                            <a href="<?php echo $value['button']['url']; ?>"><?php echo $value['button']['title']; ?></a>
+                        <div class="image_content">
+                            <div class="image_title"><h4><?php  echo $value['image_title'];?></h4></div>
+                            <div class="image_desc"><?php  echo $value['image_descrip'];?></div>
+                            <div class="image_content_button">
+                                <a href="<?php echo $value['button']['url']; ?>"><?php echo $value['button']['title']; ?></a>
+                            </div>
                         </div>
+                    
                     </div>
-             </div>
             <?php 
-                } ?> 
+            $count++;
+                }?> 
+                <script >
+                $( document ).ready(function() {
+                    var elements=document.getElementsByClassName("grid_image");
+                    // console.log(elements[0]);
+                    // elements[0].style.flexDirection='row-reverse';
+
+                    for(let i=0; i<elements.length ; i++)
+                    {
+                        if(i%2==0){
+                            elements[i].style.flexDirection='row ';
+                        }
+                        else{
+                            elements[i].style.flexDirection='row-reverse ';
+                        }
+                    }
+                    });
+            </script>
     </div>
     
 </div>
